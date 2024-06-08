@@ -1,8 +1,26 @@
-<div align="center">
+```mermaid
+%%{
+  init: {
+    "sequence": {
+      "actorFontFamily": "monospace",
+      "actorFontWeight": "bold",
+      "messageFontFamily": "monospace",
+      "messageFontWeight": "bold",
+      "noteFontWeight": "bolder"
+    }
+  }
+}%%
 
-```math
-\ce{\^^75nicode[goombafont; color:red; pointer-events: none; z-index: -10; position: fixed; top: 0; left: 0; height: 100vh; object-fit: cover; background-size: cover; width: 130vw; opacity: 0.5; background: url('https://raw.githubusercontent.com/cryptolake/cryptolake/master/mandel.jpg');]{x0000}$}
+sequenceDiagram
+  autonumber
+  participant Browser
+  participant AppServer
 
-✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
+  rect rgb(255, 255, 255, 0.05)
+    note over Browser, AppServer: (Phase 1) Authentication Check
 
-</div>
+    Browser ->> AppServer: GET /admin { Cookie:  }
+    Browser ->> Browser: useSession
+  end
+end
+```
